@@ -12,15 +12,18 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
+import de.eldecker.dhbw.spring.kafkademo.datenmodell.ErzeugerRecord;
+
 
 /**
  * Diese Bean-Klasse wird nur instanziiert, wenn das Profil {@code sender1} aktiv ist.
+ * Diese Bean versendet einen String als Kafka-Nachricht.
  */
 @Component
 @Profile("erzeuger1")
-public class KafkaErzeuger implements CommandLineRunner  {
+public class KafkaErzeuger1 implements CommandLineRunner  {
 
-    private static Logger LOG = LoggerFactory.getLogger(KafkaErzeuger.class);
+    private static Logger LOG = LoggerFactory.getLogger(KafkaErzeuger1.class);
 
     /** Formatierer für Ausgabe Datum+Zeit, z.B. "22.12.2023 (Fr.), 16:04:23" */
     private SimpleDateFormat _dateFormatter = new SimpleDateFormat("dd.MM.yyyy (E), HH:mm:ss");
@@ -32,7 +35,7 @@ public class KafkaErzeuger implements CommandLineRunner  {
      * Konstruktor für Dependency Injection.
      */
     @Autowired
-    public KafkaErzeuger(KafkaTemplate<String, String> template) {
+    public KafkaErzeuger1(KafkaTemplate<String, String> template) {
 
         _kafkaTemplate = template;
     }
@@ -42,7 +45,7 @@ public class KafkaErzeuger implements CommandLineRunner  {
      * Sie erzeugt eine Nachricht, die das aktuelle Datum+Zeit enthält,
      * und schickt sie an das Kafka-Topic.
      *
-     * @param args Wird nicht verwendet.
+     * @param args Wird nicht ausgewertet
      * @throws Exception Wird nicht geworfen
      */
     @Override

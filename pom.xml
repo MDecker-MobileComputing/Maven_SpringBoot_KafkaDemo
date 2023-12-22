@@ -29,6 +29,7 @@
 
 	<properties>
 		<java.version>17</java.version>
+		<jackson.version>2.16.0</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -51,6 +52,18 @@
 			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+	    <!-- "Jackson" für Serialisierung von Java-Objekt nach JSON. -->
+	    <dependency>
+	        <groupId>com.fasterxml.jackson.core</groupId>
+	        <artifactId>jackson-core</artifactId>
+	        <version>${jackson.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>com.fasterxml.jackson.core</groupId>
+	        <artifactId>jackson-databind</artifactId>
+	        <version>${jackson.version}</version>
+	    </dependency>		
 	</dependencies>
 
 	<build>
