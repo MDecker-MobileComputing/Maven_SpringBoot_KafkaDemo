@@ -11,15 +11,16 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * Diese Bean-Klasse wird nur instanziiert, wenn das Profil {@code verbraucher} aktiv ist.
+ * Diese Bean-Klasse wird nur instanziiert, wenn das Profil {@code verbraucher1} aktiv ist.
+ * Es werden nur Nachrichten empfangen, die verschickt wurden, nachdem dieses Programm gestartet wurde.
  */
 @Component
-@Profile("verbraucher")
+@Profile("verbraucher1")
 public class KafkaVerbraucher {
 
     private static Logger LOG = LoggerFactory.getLogger(KafkaVerbraucher.class);
 
-    
+
     /**
      * Default-Konstruktor, schreibt was auf Logger.
      */
@@ -39,7 +40,7 @@ public class KafkaVerbraucher {
      * Wenn das vorhandene Topic noch nicht vorhanden ist, dann wird es
      * beim Start der Anwendung erzeugt.
      * <br><br>
-     * 
+     *
      * Über die Annotation könnte u.a. noch das Attribut {@code groupId}
      * gesetzt werden.
      *

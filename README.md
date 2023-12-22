@@ -61,13 +61,18 @@ Nach dem ersten Start muss ein Kafka-Topic angelegt werden, auf das die Beispiel
 kafka-topics --create --topic mein-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --config retention.ms=864000000
 ```
 Anmerkungen zu den einzelnen Argumenten:
+
+* Mit `--bootstrap-server` können auch mehrere Kafka-Server angegeben werden, z.B. `--bootstrap-server server-1:9092,server-2:9092`
+
 * Der mit `--replication-factor` angegebene Wert darf nicht höher als die Anzahl der Kafka-Server sein.
   Da in der Datei `docker-compose.yml` nur ein Kafka-Server definiert wird, können wir hier keinen höheren Wert verwenden.
-* Mit `--bootstrap-server` können auch mehrere Kafka-Server angegeben werden, z.B. `--bootstrap-server server-1:9092,server-2:9092`
+
+* Wenn für `--partitions` ein höherer Wert als `1` gewählt wird, dann können die Nachrichten auf ein Topic parallel geschrieben werden.
+
 * Der Parameter `--config retention.ms` ist optional.
-  Mit dem Wert `864000000` wird die Retention-Period (also die Zeit, nach der eine Nachricht gelöscht werden kann), auf 10 Tage.
+  Mit dem Wert `864000000` wird die Retention-Period (also die Zeit, nach der eine Nachricht gelöscht werden kann), auf 10 Tage gesetzt.
   Der Default-Wert ist 7 Tage.
-  Um die Nachrichten im Topic nie zu löschen ist die Retention-Period uaf `-1` zu setzen.
+  Um die Nachrichten im Topic nie zu löschen ist die Retention-Period auf `-1` zu setzen.
 
 <br>
 
