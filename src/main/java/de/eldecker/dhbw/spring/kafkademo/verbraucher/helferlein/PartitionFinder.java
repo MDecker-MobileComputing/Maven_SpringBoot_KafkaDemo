@@ -6,16 +6,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-import de.eldecker.dhbw.spring.kafkademo.verbraucher.KafkaVerbraucherFuerAktuelleNachrichten;
-
 /**
  * Klasse mit Methode, die alle Partitionen für ein bestimmtes Kafka-Topic zurückliefert,
  * nach <a href="https://docs.spring.io/spring-kafka/reference/tips.html#tip-assign-all-parts">dieser Seite</a>.
  */
 public class PartitionFinder {
 
-private static Logger LOG = LoggerFactory.getLogger(KafkaVerbraucherFuerAktuelleNachrichten.class);
+private static Logger LOG = LoggerFactory.getLogger(PartitionFinder.class);
 
+    /** Bean für Erzeugung eines Consumer-Objekts. */
     private final ConsumerFactory<String, String> _consumerFactory;
 
     /**
@@ -36,9 +35,10 @@ private static Logger LOG = LoggerFactory.getLogger(KafkaVerbraucherFuerAktuelle
 
         try (Consumer<String, String> consumer = _consumerFactory.createConsumer()) {
 
-            String[] partitionenArray = consumer.partitionsFor(topic).stream()
-                .map(partitionInfo -> "" + partitionInfo.partition())
-                .toArray(String[]::new);
+            String[] partitionenArray = consumer.partitionsFor(topic)
+                                                .stream()
+                                                .map(partitionInfo -> "" + partitionInfo.partition())
+                                                .toArray(String[]::new);
 
             LOG.info("Anzahl Partition(en) für Topic \"{}\" gefunden: {}", topic, partitionenArray.length);
 
