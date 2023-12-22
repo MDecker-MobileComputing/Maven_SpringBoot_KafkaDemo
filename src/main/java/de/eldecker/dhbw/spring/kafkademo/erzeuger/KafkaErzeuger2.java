@@ -79,13 +79,13 @@ public class KafkaErzeuger2 implements CommandLineRunner {
      */
     private ErzeugerRecord erzeugeRecord() {
 
-        final String  schluessel = "mein-key-" + _random.nextInt(10);
-        final int     zahl       = _random.nextInt(1000);
-        final Date    datum      = new Date();
-        final String  text       = "Mein Text " + _random.nextInt(1000);
-        final boolean bool       = _random.nextBoolean();
+        final String  schluessel     = "mein-key-" + _random.nextInt(10);
+        final int     zahl           = _random.nextInt(1000);
+        final Date    datumZeitJetzt = new Date();
+        final String  text           = "Mein Text " + _random.nextInt(1000);
+        final boolean bool           = _random.nextBoolean();
                 
-        return new ErzeugerRecord(schluessel, zahl, datum, text, bool);  
+        return new ErzeugerRecord(schluessel, zahl, datumZeitJetzt, text, bool);  
     }
     
 }
