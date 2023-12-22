@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.listener.AbstractConsumerSeekAware;
 import org.springframework.stereotype.Component;
 
 
@@ -20,6 +19,7 @@ public class KafkaVerbraucher {
 
     private static Logger LOG = LoggerFactory.getLogger(KafkaVerbraucher.class);
 
+    
     /**
      * Default-Konstruktor, schreibt was auf Logger.
      */
@@ -36,6 +36,10 @@ public class KafkaVerbraucher {
      * nachdem dieses Programm gestartet wurde.
      * <br><br>
      *
+     * Wenn das vorhandene Topic noch nicht vorhanden ist, dann wird es
+     * beim Start der Anwendung erzeugt.
+     * <br><br>
+     * 
      * Über die Annotation könnte u.a. noch das Attribut {@code groupId}
      * gesetzt werden.
      *
