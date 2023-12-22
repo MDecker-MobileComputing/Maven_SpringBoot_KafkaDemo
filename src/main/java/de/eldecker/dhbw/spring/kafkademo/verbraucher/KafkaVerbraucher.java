@@ -1,4 +1,4 @@
-package de.eldecker.dhbw.spring.kafkademo.konsument;
+package de.eldecker.dhbw.spring.kafkademo.verbraucher;
 
 import static de.eldecker.dhbw.spring.kafkademo.KafkaDemoApplication.TOPIC_NAME;
 
