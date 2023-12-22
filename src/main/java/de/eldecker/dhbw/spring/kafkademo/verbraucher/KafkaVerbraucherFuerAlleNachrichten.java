@@ -29,6 +29,7 @@ public class KafkaVerbraucherFuerAlleNachrichten {
         LOG.debug("Kafka-Verbraucher (alle Nachrichten) aktiv fuer Topic \"{}\".", TOPIC_NAME);
     }
     
+
     /**
      * Diese Methode empfängt auch Nachrichten, die in das Topic geschrieben wurden, bevor
      * dieses Programm gestartet wurde; siehe hierzu auch die Klassen im Paket
