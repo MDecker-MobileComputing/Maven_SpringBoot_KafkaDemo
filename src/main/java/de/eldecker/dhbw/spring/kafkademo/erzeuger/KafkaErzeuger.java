@@ -43,7 +43,7 @@ public class KafkaErzeuger implements CommandLineRunner  {
      * und schickt sie an das Kafka-Topic.
      *
      * @param args Wird nicht verwendet.
-     * @throws Exception Wird nicht geworfen.
+     * @throws Exception Wird nicht geworfen
      */
     @Override
     public void run(String... args) throws Exception {
@@ -52,6 +52,7 @@ public class KafkaErzeuger implements CommandLineRunner  {
         final String nachricht = "Programmatisch erzeugte Nachricht: " + datumString;
 
         _kafkaTemplate.send(TOPIC_NAME, nachricht );
+        //_kafkaTemplate.send(TOPIC_NAME, key, nachricht ); // alle Nachrichten mit selbem Key kommen in selbe Partition
         LOG.info("Die folgende Nachricht wurde abgeschickt: " + nachricht);
     }
 

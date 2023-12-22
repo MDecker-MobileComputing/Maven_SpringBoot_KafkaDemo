@@ -10,6 +10,7 @@ import org.springframework.kafka.annotation.PartitionOffset;
 import org.springframework.kafka.annotation.TopicPartition;
 import org.springframework.stereotype.Component;
 
+
 /**
  * Diese Bean-Klasse wird nur instanziiert, wenn das Profil {@code verbraucher2} aktiv ist.
  * Es werden nicht nur aktuelle Nachrichten empfangen, sondern auch Nachrichten, die gesendet wurden,
