@@ -2,9 +2,12 @@
 
 <br>
 
-Dieses Repo enthält Java-Programme, um das Schreiben und Lesen auf ein [Kafka](https://kafka.apache.org/)-Topic zu demonstrieren.
+Dieses Repo enthält ein Maven-Projekt mit Spring-Boot, um das Schreiben und Lesen auf ein [Kafka](https://kafka.apache.org/)-Topic zu demonstrieren.
+Das Maven-Projekt wurde mit [dieser Konfiguration](https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.2.1&packaging=jar&jvmVersion=17&groupId=de.eldecker.dhbw.spring&artifactId=kafkademo&name=kafka-demo&description=Demo%20f%C3%BCr%20Verwendung%20von%20Kafka%20mit%20Spring-Boot&packageName=de.eldecker.dhbw.spring.kafkademo&dependencies=kafka) von *Spring Initializr* erzeugt.
 
-Es ist auch eine Datei [docker-compose.yml](./docker-compose.yml) enthalten, mit der ein lokaler Kafka-Server als Docker-Container gestartet werden kann.
+<br>
+
+Es ist auch eine Datei [docker-compose.yml](./DockerCompose/docker-compose.yml) enthalten, mit der ein lokaler Kafka-Server als Docker-Container gestartet werden kann.
 
 <br>
 
@@ -12,10 +15,10 @@ Es ist auch eine Datei [docker-compose.yml](./docker-compose.yml) enthalten, mit
 
 <br>
 
-Kafka benötigt Zookeeper für die Koordination der einzelnen Kafka-Broker.
+Kafka benötigt [Zookeeper](https://zookeeper.apache.org/) für die Koordination der einzelnen Kafka-Broker.
 
 
-Start von Kafka und Zookeeper wie in Datei [docker-compose.yml](./docker-compose.yml) definiert:
+Start von Kafka und Zookeeper wie in Datei [docker-compose.yml](./DockerCompose/docker-compose.yml) definiert:
 ```
 docker-compose up
 ```
@@ -51,3 +54,15 @@ Der folgende Befehl gibt alle bekannten Topics aus:
 ```
 kafka-topics --list --bootstrap-server localhost:9092
 ```
+
+<br>
+
+----
+
+## License ##
+
+<br>
+
+See the [LICENSE file](LICENSE.md) for license rights and limitations (BSD 3-Clause License).
+
+<br>
