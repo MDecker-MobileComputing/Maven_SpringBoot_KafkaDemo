@@ -2,15 +2,12 @@ package de.eldecker.dhbw.spring.kafkademo.verbraucher;
 
 import static de.eldecker.dhbw.spring.kafkademo.KafkaDemoApplication.TOPIC_NAME;
 
-import org.apache.kafka.clients.consumer.Consumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.PartitionOffset;
 import org.springframework.kafka.annotation.TopicPartition;
-import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -24,11 +21,21 @@ public class KafkaVerbraucherFuerAlleNachrichten {
 
     private static Logger LOG = LoggerFactory.getLogger(KafkaVerbraucherFuerAlleNachrichten.class);
     
+    /**
+     * Default-Konstruktor, schreibt was auf Logger.
+     */    
     public KafkaVerbraucherFuerAlleNachrichten() {
 
         LOG.debug("Kafka-Verbraucher (alle Nachrichten) aktiv fuer Topic \"{}\".", TOPIC_NAME);
     }
     
+    /**
+     * Diese Methode empfängt auch Nachrichten, die in das Topic geschrieben wurden, bevor
+     * dieses Programm gestartet wurde; siehe hierzu auch die Klassen im Paket
+     * {@linkplain de.eldecker.dhbw.spring.kafkademo.verbraucher.helferlein}.
+     *  
+     * @param string Empfangene Nachricht
+     */
     @KafkaListener(topicPartitions = @TopicPartition(topic = "mein-topic",
             partitions = "#{@finder.partitions('mein-topic')}",
             partitionOffsets = @PartitionOffset(partition = "*", initialOffset = "0")))            
