@@ -22,8 +22,8 @@ public class KafkaErzeuger implements CommandLineRunner  {
 
     private static Logger LOG = LoggerFactory.getLogger(KafkaErzeuger.class);
 
-    /** Formatierer für Ausgabe Datum+Zeit, z.B. "22.12.2023 (Fr.), 16:04" */
-    private SimpleDateFormat _dateFormatter = new SimpleDateFormat("dd.MM.yyyy (E), HH:mm");
+    /** Formatierer für Ausgabe Datum+Zeit, z.B. "22.12.2023 (Fr.), 16:04:23" */
+    private SimpleDateFormat _dateFormatter = new SimpleDateFormat("dd.MM.yyyy (E), HH:mm:ss");
 
     /** Bean zum Versenden von Kafka-Nachrichten. */
     private KafkaTemplate<String, String> _kafkaTemplate;
