@@ -16,17 +16,17 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Profile("verbraucher1")
-public class KafkaVerbraucher {
+public class KafkaVerbraucherFuerAktuelleNachrichten {
 
-    private static Logger LOG = LoggerFactory.getLogger(KafkaVerbraucher.class);
+    private static Logger LOG = LoggerFactory.getLogger(KafkaVerbraucherFuerAktuelleNachrichten.class);
 
 
     /**
      * Default-Konstruktor, schreibt was auf Logger.
      */
-    public KafkaVerbraucher() {
+    public KafkaVerbraucherFuerAktuelleNachrichten() {
 
-        LOG.debug("Kafka-Verbraucher aktiv fuer Topic \"{}\".", TOPIC_NAME);
+        LOG.debug("Kafka-Verbraucher (nur aktuelle Nachrichten) aktiv fuer Topic \"{}\".", TOPIC_NAME);
     }
 
 
@@ -46,9 +46,9 @@ public class KafkaVerbraucher {
      *
      * @param string Empfangene Nachricht
      */
-    @KafkaListener(id = "mein-kafka-listener", topics = TOPIC_NAME)
+    @KafkaListener(id = "mein-kafka-listener-1", topics = TOPIC_NAME)
     public void onNachrichtEmpfangen(String string) {
 
-        LOG.info("Kafka-Listener hat Nachricht empfangen: \"{}\"", string);
+        LOG.info("Kafka-Listener hat aktuelle Nachricht empfangen: \"{}\"", string);
     }
 }

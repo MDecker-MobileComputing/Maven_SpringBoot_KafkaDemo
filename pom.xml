@@ -11,6 +11,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+    <!-- GAV-Koordinaten für das vorliegenden Programm -->
 	<groupId>de.eldecker.dhbw.spring</groupId>
 	<artifactId>kafkademo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
