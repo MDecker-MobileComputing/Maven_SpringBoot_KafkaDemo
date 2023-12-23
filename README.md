@@ -52,6 +52,20 @@ Der angegebene Wert von `168` Stunden entspricht entspricht 7 Tagen.
 
 <br>
 
+## Terminalverbindung zu Container mit Kafka-Server ##
+
+Mit dem folgenden CLI-Befehl kann eine Terminverbindung zum Container aufgebaut werden:
+```
+sudo docker exec -it <container-name-oder-id> sh
+```
+Es ist der Container mit dem Kafka-Server zu wählen, nicht der mit ZooKeeper.
+
+<br>
+
+Eine Terminverbindung kann auch mit *Docker Desktop* geöffnet werden.
+
+<br>
+
 ### Topic anlegen ###
 
 Nach dem ersten Start muss ein Kafka-Topic angelegt werden, auf das die Beispiel-Applikation Nachrichten schreiben kann.
@@ -93,6 +107,26 @@ kafka-topics --delete --bootstrap-server localhost:9092 --topic mein-topic
 <br>
 
 Das Löschen und Neu-Anlegen des Topics kann z.B. verwendet werden, um alle Nachrichten vor Ablauf der *Retention Period* zu löschen.
+
+<br>
+
+### Nachrichten lesen und erzeugen ###
+
+Im Kafka-Container kann man mit dem folgenden Befehl alle Nachrichten, die auf das Topic `mein-topic` geschrieben wurden, ausgeben:
+```
+kafka-console-consumer --bootstrap-server localhost:9092 --topic mein-topic --from-beginning
+```
+Das Programm kann mit der Tastenkombination `CTRL+C` beendet werden.
+Wenn man die Option `--from-beginning` weglässt, dann werden nur Nachrichten, die nach dem Start des Programm abgeschickt worden, angezeigt.
+
+<br>
+
+Mit dem folgenden Befehl können Nachrichten auf das Topic geschrieben werden:
+```
+kafka-console-producer --broker-list localhost:9092 --topic mein-topic
+```
+Die Nachricht wird nach Druck auf `ENTER` abgeschickt, es kann dann die nächste Nachricht eingegeben werden.
+Das Programm ist ebenfalls mit der Tastenkombination `CTRL+C` zu beenden.
 
 <br>
 
