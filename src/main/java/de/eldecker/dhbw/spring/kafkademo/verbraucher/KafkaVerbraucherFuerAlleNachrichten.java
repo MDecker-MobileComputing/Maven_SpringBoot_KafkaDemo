@@ -21,30 +21,31 @@ import org.springframework.stereotype.Component;
 public class KafkaVerbraucherFuerAlleNachrichten {
 
     private static Logger LOG = LoggerFactory.getLogger(KafkaVerbraucherFuerAlleNachrichten.class);
-    
+
+
     /**
      * Default-Konstruktor, schreibt was auf Logger.
-     */    
+     */
     public KafkaVerbraucherFuerAlleNachrichten() {
 
         LOG.debug("Kafka-Verbraucher (alle Nachrichten) aktiv fuer Topic \"{}\".", TOPIC_NAME);
     }
-    
+
 
     /**
      * Diese Methode empfängt auch Nachrichten, die in das Topic geschrieben wurden, bevor
      * dieses Programm gestartet wurde; siehe hierzu auch die Klassen im Paket
      * {@linkplain de.eldecker.dhbw.spring.kafkademo.verbraucher.helferlein}.
-     *  
+     *
      * @param string Empfangene Nachricht
      */
     @KafkaListener(topicPartitions = @TopicPartition(topic = "mein-topic",
             partitions = "#{@finder.partitions('mein-topic')}",
-            partitionOffsets = @PartitionOffset(partition = "*", initialOffset = "0")))            
+            partitionOffsets = @PartitionOffset(partition = "*", initialOffset = "0")))
     public void onNachrichtEmpfangen(String string) {
 
-        LOG.info("Kafka-Listener hat Nachricht empfangen: \"{}\"", string);        
+        LOG.info("Kafka-Listener hat Nachricht empfangen: \"{}\"", string);
     }
-    
+
 }
 
