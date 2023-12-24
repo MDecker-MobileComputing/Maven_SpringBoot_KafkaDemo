@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 
+
 /**
  * Die Klasse ist mit {@code Configuration} annotiert, weil sie mit {@code @Bean} annotierte Methoden hat. 
  */
