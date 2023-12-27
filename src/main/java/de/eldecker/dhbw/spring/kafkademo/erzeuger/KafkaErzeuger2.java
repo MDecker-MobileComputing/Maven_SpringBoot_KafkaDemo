@@ -41,9 +41,9 @@ public class KafkaErzeuger2 implements CommandLineRunner {
      * Konstruktor für Dependency Injection.
      */
     @Autowired
-    public KafkaErzeuger2(KafkaTemplate<String, String> template,
-                          ObjectMapper objectMapper,
-                          Random zufall) {
+    public KafkaErzeuger2( KafkaTemplate<String, String> template,
+                           ObjectMapper objectMapper,
+                           Random zufall ) {
 
         _kafkaTemplate = template;
         _objectMapper  = objectMapper;
