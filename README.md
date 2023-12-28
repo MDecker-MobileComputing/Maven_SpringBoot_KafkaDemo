@@ -84,7 +84,7 @@ Anmerkungen zu den einzelnen Argumenten:
 * Wenn für `--partitions` ein höherer Wert als `1` gewählt wird, dann können die Nachrichten auf ein Topic parallel geschrieben werden.
 
 * Der Parameter `--config retention.ms` ist optional.
-  Mit dem Wert `864000000` wird die *Retention Period* (also die Zeit, nach der eine Nachricht gelöscht werden kann), auf 10 Tage gesetzt.
+  Mit dem Wert `864000000` wird die *Retention Period* (also die Zeit, nach der eine Nachricht gelöscht werden kann) auf 10 Tage gesetzt.
   Der Default-Wert ist 7 Tage.
   Um die Nachrichten im Topic nie zu löschen ist die *Retention Period* auf `-1` zu setzen.
 
