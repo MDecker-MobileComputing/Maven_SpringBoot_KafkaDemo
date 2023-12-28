@@ -29,6 +29,7 @@ public class KafkaErzeuger1 implements CommandLineRunner  {
     /** Bean zum Versenden von Kafka-Nachrichten. */
     private KafkaTemplate<String, String> _kafkaTemplate;
 
+
     /**
      * Konstruktor für Dependency Injection.
      */
@@ -37,6 +38,7 @@ public class KafkaErzeuger1 implements CommandLineRunner  {
 
         _kafkaTemplate = template;
     }
+
 
     /**
      * Diese Methode wird nach dem Start der Anwendung ausgeführt.
@@ -49,12 +51,12 @@ public class KafkaErzeuger1 implements CommandLineRunner  {
     @Override
     public void run(String... args) throws Exception {
 
-        final String datumString = _dateFormatter.format(System.currentTimeMillis());
+        final String datumString = _dateFormatter.format( System.currentTimeMillis() );
         final String nachricht = "Programmatisch erzeugte Nachricht: " + datumString;
 
-        _kafkaTemplate.send(TOPIC_NAME, nachricht );
+        _kafkaTemplate.send( TOPIC_NAME, nachricht );
         //_kafkaTemplate.send(TOPIC_NAME, key, nachricht ); // alle Nachrichten mit selbem Key kommen in selbe Partition
-        LOG.info("Die folgende Nachricht wurde abgeschickt: " + nachricht);
+        LOG.info( "Die folgende Nachricht wurde abgeschickt: {}", nachricht);
     }
 
 }
