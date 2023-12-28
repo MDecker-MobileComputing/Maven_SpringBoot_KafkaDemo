@@ -18,8 +18,8 @@ public class PartitionFinderConfig {
      * @param consumerFactory Die Factory, die die Kafka-Consumer erzeugt.
      * @return Eine Instanz der Klasse {@code PartitionFinder}.
      */
-    @Bean
-    public PartitionFinder finder(ConsumerFactory<String, String> consumerFactory) {
+    @Bean("partitionsfinder")
+    public PartitionFinder buildPartitionFinder(ConsumerFactory<String, String> consumerFactory) {
 
         return new PartitionFinder(consumerFactory);
     }

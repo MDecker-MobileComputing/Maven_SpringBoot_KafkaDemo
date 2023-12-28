@@ -36,11 +36,16 @@ public class KafkaVerbraucherFuerAlleNachrichten {
      * Diese Methode empfängt auch Nachrichten, die in das Topic geschrieben wurden, bevor
      * dieses Programm gestartet wurde; siehe hierzu auch die Klassen im Paket
      * {@linkplain de.eldecker.dhbw.spring.kafkademo.verbraucher.helferlein}.
+     * <br><br>
+     *
+     * Der Wert des Attributs {@code partitions} sagt, dass von einer Bean mit Namen
+     * {@code partitionsfinder} die Methode {@code partitionen()} aufgerufen werden soll,
+     * um alle Partitionen für das Topic mit dem als Argument übergebenen Namen zu erhalten.
      *
      * @param string Empfangene Nachricht
      */
     @KafkaListener(topicPartitions = @TopicPartition(topic = "mein-topic",
-            partitions = "#{@finder.partitions('mein-topic')}",
+            partitions = "#{@partitionsfinder.partitionen('mein-topic')}",
             partitionOffsets = @PartitionOffset(partition = "*", initialOffset = "0")))
     public void onNachrichtEmpfangen(String string) {
 

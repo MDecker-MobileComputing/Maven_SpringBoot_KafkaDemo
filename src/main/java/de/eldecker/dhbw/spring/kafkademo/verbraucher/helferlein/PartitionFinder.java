@@ -33,7 +33,7 @@ private static Logger LOG = LoggerFactory.getLogger(PartitionFinder.class);
      * @param topic Topic, für das alle Partitionen gesucht werden sollen
      * @return String-Array mit alle Partitionen
      */
-    public String[] partitions(String topic) {
+    public String[] partitionen(String topic) {
 
         try (Consumer<String, String> consumer = _consumerFactory.createConsumer()) {
 
