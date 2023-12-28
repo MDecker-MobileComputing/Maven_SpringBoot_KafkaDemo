@@ -17,6 +17,7 @@ private static Logger LOG = LoggerFactory.getLogger(PartitionFinder.class);
     /** Bean für Erzeugung eines Consumer-Objekts. */
     private final ConsumerFactory<String, String> _consumerFactory;
 
+
     /**
      * Konstruktor für Übergabe einer Instanz der Klasse {@code ConsumerFactory}.
      */
@@ -24,6 +25,7 @@ private static Logger LOG = LoggerFactory.getLogger(PartitionFinder.class);
 
         _consumerFactory = consumerFactory;
     }
+
 
     /**
      * Alle Partitionen für ein Topic zurückgeben.
