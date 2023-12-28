@@ -12,8 +12,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
-import de.eldecker.dhbw.spring.kafkademo.datenmodell.ErzeugerRecord;
-
 
 /**
  * Diese Bean-Klasse wird nur instanziiert, wenn das Profil {@code sender1} aktiv ist.
