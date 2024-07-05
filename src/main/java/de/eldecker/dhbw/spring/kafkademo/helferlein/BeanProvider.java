@@ -1,11 +1,10 @@
 package de.eldecker.dhbw.spring.kafkademo.helferlein;
 
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
+import static com.fasterxml.jackson.databind.SerializationFeature.INDENT_OUTPUT;
 import static com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS;
 
 import java.util.Random;
-
-import static com.fasterxml.jackson.databind.SerializationFeature.INDENT_OUTPUT;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
