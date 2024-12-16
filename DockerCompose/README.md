@@ -23,14 +23,19 @@ docker-compose -f docker-compose_zweiKafkaServer.yml up
 
 Befehl, um den Cluster zu stoppen:
 ```
-docker-compose -f docker-compose_zweiKafkaServer.yml up
+docker-compose -f docker-compose_zweiKafkaServer.yml stop
+```
+
+Befehl, um den gestoppten Cluster neu zu starten:
+```
+docker-compose -f docker-compose_zweiKafkaServer.yml start
 ```
 
 <br>
 
 Befehl, um den Cluster herunterzufahren und die Container zu löschen (Daten gehen verloren!):
 ```
-docker-compose -f docker-compose_zweiKafkaServer.yml up
+docker-compose -f docker-compose_zweiKafkaServer.yml down
 ```
 
 <br>
