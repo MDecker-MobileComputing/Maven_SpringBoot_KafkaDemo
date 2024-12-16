@@ -9,7 +9,7 @@ mit denen ein Kafka-Server gestartet werden kann:
 
 <br>
 
-Ab Vesion 4.0 wird Kafka nur noch den KRaft-Modus unterstützen, siehe [hier](https://heise.de/-10009773).
+Ab Version 4.0 wird Kafka nur noch den KRaft-Modus unterstützen, siehe [hier](https://heise.de/-10009773).
 
 <br>
 
