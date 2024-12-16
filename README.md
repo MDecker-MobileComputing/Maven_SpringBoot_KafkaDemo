@@ -13,30 +13,8 @@ Es ist auch eine Datei [docker-compose.yml](./DockerCompose/docker-compose.yml) 
 
 ## Kafka in Docker-Container ##
 
-### Starten, pausieren und löschen ###
-
-Kafka benötigt [Zookeeper](https://zookeeper.apache.org/) für die Koordination der einzelnen Kafka-Broker.
-
-
-Befehl zum Start von Kafka und Zookeeper wie in Datei [docker-compose.yml](./DockerCompose/docker-compose.yml) definiert:
-```
-docker-compose up
-```
-
-<br>
-
-Container stoppen und neu starten:
-```
-docker-compose stop
-docker-compose start
-```
-
-<br>
-
-Container löschen (Topics gehen verloren!)
-```
-docker-compose down
-```
+Siehe [diesen Unterordner](DockerCompose/) in diesem Repo für zwei Konfigurationsdateien für *Docker Compose*, um einen Kafka-Server in einem Docker-Server
+auszuführen.
 
 <br>
 
