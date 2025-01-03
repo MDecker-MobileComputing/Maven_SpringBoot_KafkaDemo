@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 
 /**
  * Die Klasse ist mit {@code Configuration} annotiert, weil sie mit {@code @Bean} annotierte Methoden hat,
- * als Beans bereitstellen kann.
+ * die Beans bereitstellen.
  */
 @Configuration
 public class BeanProvider {
