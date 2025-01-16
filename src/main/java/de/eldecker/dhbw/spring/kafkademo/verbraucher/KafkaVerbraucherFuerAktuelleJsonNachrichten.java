@@ -57,9 +57,10 @@ public class KafkaVerbraucherFuerAktuelleJsonNachrichten {
      * Über die Annotation könnte u.a. noch das Attribut {@code groupId}
      * gesetzt werden.
      *
-     * @param string Empfangene Nachricht (JSON-String, wird nach {@link VerbraucherRecord} deserialisiert)
+     * @param string Empfangene Nachricht (JSON-String, wird nach 
+     *               {@link VerbraucherRecord} deserialisiert)
      */
-    @KafkaListener(id = "mein-kafka-listener-1", topics = TOPIC_NAME)
+    @KafkaListener(id = "verbraucher-json-aktuelle", topics = TOPIC_NAME)
     public void onNachrichtEmpfangen(String jsonString) {
 
         try {
@@ -73,4 +74,5 @@ public class KafkaVerbraucherFuerAktuelleJsonNachrichten {
                       jsonString, ex);
         }
     }
+
 }

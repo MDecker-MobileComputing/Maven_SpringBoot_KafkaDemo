@@ -44,7 +44,8 @@ public class KafkaVerbraucherFuerAlleNachrichten {
      *
      * @param string Empfangene Nachricht
      */
-    @KafkaListener(topicPartitions = @TopicPartition(topic = "mein-topic",
+    @KafkaListener(id = "verbraucher-text-alle",
+            topicPartitions = @TopicPartition(topic = "mein-topic",
             partitions = "#{@partitionsfinder.partitionen('mein-topic')}",
             partitionOffsets = @PartitionOffset(partition = "*", initialOffset = "0")))
     public void onNachrichtEmpfangen(String string) {

@@ -46,9 +46,10 @@ public class KafkaVerbraucherFuerAktuelleNachrichten {
      *
      * @param string Empfangene Nachricht
      */
-    @KafkaListener(id = "mein-kafka-listener-1", topics = TOPIC_NAME)
+    @KafkaListener(id = "verbraucher-text-aktuelle", topics = TOPIC_NAME)
     public void onNachrichtEmpfangen(String string) {
 
         LOG.info("Kafka-Listener hat aktuelle Nachricht empfangen: \"{}\"", string);
     }
+
 }
